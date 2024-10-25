@@ -23,6 +23,19 @@ public class BootStrapData implements CommandLineRunner {
 
         Author tim = new Author("Timothy", "Kwock");
         Book firstBook = new Book("My Programming Journey", "0000001");
+        tim.getBooks().add(firstBook);
+        firstBook.getAuthors().add(tim);
+        authorRepository.save(tim);
+        bookRepository.save(firstBook);
 
+        Author bob = new Author("Bob", "Ross");
+        Book happyTrees = new Book("Happy Trees", "0000002");
+        bob.getBooks().add(happyTrees);
+        happyTrees.getAuthors().add(bob);
+        authorRepository.save(bob);
+        bookRepository.save(happyTrees);
+
+        System.out.println("Initializing Boot Strap...");
+        System.out.println("Number of Books: " + authorRepository.count());
     }
 }
