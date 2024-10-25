@@ -12,7 +12,7 @@ public class Author {
     private Long id;
 
     private String firstName;
-    private String latName;
+    private String lastName;
 
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books;
@@ -20,9 +20,14 @@ public class Author {
     public Author() {
     }
 
-    public Author(String firstName, String latName, Set<Book> books) {
+    public Author(String firstName, String lastName) {
         this.firstName = firstName;
-        this.latName = latName;
+        this.lastName = lastName;
+    }
+
+    public Author(String firstName, String lastName, Set<Book> books) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.books = books;
     }
 
@@ -38,8 +43,8 @@ public class Author {
         return firstName;
     }
 
-    public String getLatName() {
-        return latName;
+    public String getLastName() {
+        return lastName;
     }
 
     public Set<Book> getBooks() {
@@ -50,8 +55,8 @@ public class Author {
         this.firstName = firstName;
     }
 
-    public void setLatName(String latName) {
-        this.latName = latName;
+    public void setLatName(String lastName) {
+        this.lastName = lastName;
     }
 
     public void setBooks(Set<Book> books) {
@@ -63,7 +68,7 @@ public class Author {
         return "Author{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
-                ", latName='" + latName + '\'' +
+                ", latName='" + lastName + '\'' +
                 ", books=" + books +
                 '}';
     }
